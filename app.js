@@ -29,6 +29,15 @@ app.get("/speak/:animalName", function(req, res){
 });
 
 //visiting word print page
+app.get("/repeat/:word/:count", function(req, res){
+    var num = Number(req.params.count);
+    var wordCont = req.params.word;
+    var result = "";
+    for(var i = 0; i < num; i++){
+       result += wordCont + " "; 
+    }
+    res.send(result);
+});
 
 //visting every other thing else
 app.get("*", function(req, res){
